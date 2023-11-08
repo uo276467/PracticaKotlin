@@ -75,6 +75,9 @@ class MainActivity() : AppCompatActivity() {
 
     private fun cargarFotos(){
         var fotos = loadAnimalsFromCsv("animales.csv")
+        for(foto in fotos){
+            fotosDb.fotoDao().add(foto)
+        }
         val progressBar = findViewById<ProgressBar>(R.id.progressBarCarga)
         progressBar.visibility = View.INVISIBLE
         recyclerView.visibility = View.VISIBLE
